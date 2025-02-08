@@ -1,0 +1,151 @@
+1)
+Find Peak Elements: Given an array, find all peak elements (elements greater than both neighbors).
+
+2)
+Majority Element: Find the element that appears more than N/2 times in an array.
+
+3)
+ Palindromic Substring: Find the  palindromic  in a given string
+import java.util.*;
+public class Main {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter string:");
+      String s = sc.next();
+      System.out.println("Palindromic substrings:");
+      for (int i = 0; i < s.length(); i++) {
+         for (int j = i + 1; j <= s.length(); j++) {
+            String substring = s.substring(i, j);
+            if (isPalindrome(substring)) {
+               System.out.println(substring);
+            }
+         }
+      }
+   }
+
+   public static boolean isPalindrome(String str) {
+      int left = 0, right = str.length() - 1;
+      while (left < right) {
+         if (str.charAt(left) != str.charAt(right)) {
+            return false;
+         }
+         left++;
+         right--;
+      }
+      return true;
+   }
+}
+
+
+4)
+Anagram Groups: Given a list of strings, group anagrams together.
+
+5)
+String to Integer (Atoi): Implement the atoi() function without using built-in conversion.
+
+6)
+Balanced Parentheses: Given a string of parentheses, check if it's balanced.
+
+7)
+Pascal’s Triangle: Print the first n rows of Pascal’s triangle.
+public class Main {
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = 0; i < n; i++) {
+            int num = 1;
+            for (int j = 0; j <= i; j++) {
+                System.out.print(num + " ");
+                num = num * (i - j) / (j + 1);
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+
+8)
+   *  
+  ***  
+ *****  
+*******  
+ *****  
+  ***  
+   *  
+public class Main {
+   public static void main(String[] args) {
+      int n = 7;
+      for (int i = 1; i <= n; i += 2) {
+         for (int j = 0; j < (n - i) / 2; j++) {
+            System.out.print(" ");
+         }
+         for (int j = 0; j < i; j++) {
+            System.out.print("*");
+         }
+         System.out.println();
+      }
+
+      for (int i = n - 2; i >= 1; i -= 2) {
+         for (int j = 0; j < (n - i) / 2; j++) {
+            System.out.print(" ");
+         }
+         for (int j = 0; j < i; j++) {
+            System.out.print("*");
+         }
+         System.out.println();
+      }
+   }
+}
+
+
+9)
+Move Zeros to End: Move all zeros in an array to the end while maintaining the order of other elements.
+import java.util.*;
+public class Main {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      System.out.println("enter size of array:");
+      int n = sc.nextInt();
+      int[] arr = new int[n];
+      System.out.println("enter the element of array:");
+      for (int i = 0; i < n; i++) {
+         arr[i] = sc.nextInt();
+      }
+      moveZerosToEnd(arr);
+      System.out.println("Array after moving zeros to  end:");
+      System.out.println(Arrays.toString(arr));
+   }
+   public static void moveZerosToEnd(int[] arr) {
+      int nonZeroIndex = 0;
+      for (int i = 0; i < arr.length; i++) {
+         if (arr[i] != 0) {
+            int temp = arr[i];
+            arr[i] = arr[nonZeroIndex];
+            arr[nonZeroIndex] = temp;
+            nonZeroIndex++;
+         }
+      }
+   }
+}
+
+
+10)
+Matrix Transpose: Find the transpose of a given NxM matrix.
+public class Main {
+   public static int[][] transposeMatrix(int[][] matrix) {
+      int rows = matrix.length, cols = matrix[0].length;
+      int[][] transposed = new int[cols][rows];
+      for (int i = 0; i < rows; i++)
+         for (int j = 0; j < cols; j++)
+            transposed[j][i] = matrix[i][j];
+      return transposed;
+   }
+
+   public static void main(String[] args) {
+      int[][] matrix = {{1, 2, 3}, {4, 5, 6}};
+      int[][] transposed = transposeMatrix(matrix);
+      for (int[] row : transposed)
+         System.out.println(java.util.Arrays.toString(row));
+   }
+}

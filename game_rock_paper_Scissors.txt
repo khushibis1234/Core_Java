@@ -1,0 +1,32 @@
+1)
+Create a Java program that simulates a game of Rock, Paper, Scissors between two players. Take the choices as input and determine the winner using "if-else if" statements. If it's a tie, print "Tie.
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        
+        System.out.println("Welcome to the game: Rock, Paper, Scissors!");
+        System.out.println("Person 1,enter rock,paper,Scissors!");
+        String a=sc.next().toLowerCase();
+        
+        System.out.println("Person 2,enter rock, paper, Scissors!");
+        String b=sc.next().toLowerCase();
+        
+         if(a.equals(b)){
+             System.out.println("It's tie");
+         }
+        else if((a.equals("rock") && b.equals("scissors"))||
+                 (a.equals("paper")&& b.equals("rock")) ||
+                 (a.equals("scissors")&&b.equals("paper"))){
+            System.out.println("Person 1 wins");
+        }
+        else if((b.equals("rock") && a.equals("scissors"))||
+                (b.equals("paper")&& a.equals("rock")) ||
+                ( b.equals("scissors")&& a.equals("paper"))){
+            System.out.println("Person 2 wins");
+        }
+
+
+
+    }
+}

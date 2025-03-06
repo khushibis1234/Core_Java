@@ -1,0 +1,41 @@
+// Define the class that implements Runnable interface
+class MyThread implements Runnable {
+private String threadName; // Name of the thread
+// Constructor to set the thread name
+public MyThread(String threadName) {
+this.threadName = threadName;
+}
+// Override the run() method to specify the task for the thread
+@Override
+public void run() {
+try {
+for (int i = 0; i &lt; 5; i++) { // Each thread will print 5 times
+System.out.println(threadName + &quot; is running&quot;);
+Thread.sleep(1000); // Sleep for 1 second
+}
+} catch (InterruptedException e) {
+System.out.println(threadName + &quot; was interrupted&quot;);
+}
+}
+}
+public class ThreadExample {
+public static void main(String[] args) {
+// Create two MyThread objects with different thread names
+MyThread thread1 = new MyThread(&quot;Thread 1&quot;);
+MyThread thread2 = new MyThread(&quot;Thread 2&quot;);
+// Create two Thread objects using the Runnable instances
+Thread t1 = new Thread(thread1);
+Thread t2 = new Thread(thread2);
+// Start both threads simultaneously
+t1.start();
+t2.start();
+try {
+// Wait for both threads to complete before continuing
+t1.join();
+t2.join();
+} catch (InterruptedException e) {
+System.out.println(&quot;Main thread interrupted&quot;);
+}
+System.out.println(&quot;Both threads have finished execution.&quot;);
+}
+}

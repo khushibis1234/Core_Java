@@ -1,0 +1,28 @@
+import java.util.*;
+class A{
+    void sub(int a,int b){
+        int c=a-b;
+        System.out.println(c);
+    }
+    void add(int a,int b){
+        int c=a+b;
+        System.out.println(c);
+    }
+    void multi(int a,int b){
+        int c=a*b;
+        System.out.println(c);
+    }
+    void div(int a,int b){
+        int c=a/b;
+        System.out.println(c);
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        A obc=new A();
+        obc.sub(34,56);
+        obc.add(3,5);
+        obc.multi(4,7);
+        obc.div(45,78);
+    }
+}
